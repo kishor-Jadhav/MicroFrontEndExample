@@ -1,32 +1,18 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import AngularWrapper from "./AngularWrapper";
 
 const ReactRemote = React.lazy(() =>
   import("reactMfe/ReactComponent")
 );
 
-function AngularWrapper() {
-
-  useEffect(() => {
-
-    const script = document.createElement("script");
-
-    script.src = "http://localhost:4202/remoteEntry.js";
-
-    script.type = "text/javascript";
-
-    document.body.appendChild(script);
-
-  }, []);
-
-  return <angular-mfe-element></angular-mfe-element>;
-
-}
+const AngularRemote = React.lazy(() =>
+  import("angularMfe/AngularApp")
+);
 
 function App() {
 
   return (
-
     <BrowserRouter>
 
       <h1>Shell Application</h1>
@@ -50,17 +36,12 @@ function App() {
           }
         />
 
-        <Route
-          path="/angular"
-          element={<AngularWrapper />}
-        />
+       <Route path="/angular" element={<AngularWrapper />} />
 
       </Routes>
 
     </BrowserRouter>
-
   );
-
 }
 
 export default App;

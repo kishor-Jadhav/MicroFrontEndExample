@@ -61,5 +61,7 @@ For more information on using the Angular CLI, including detailed command refere
 #Micro Front end
 ng new angular-mfe
 npx ng add @angular-architects/module-federation --project angular-mfe --silent
+npm install @angular-architects/module-federation --save-dev
 create webpack.config.js
 module-federation.config.js
+npm install @angular/elements

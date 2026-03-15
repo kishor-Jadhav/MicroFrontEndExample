@@ -1,11 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <h2>Angular Microfrontend</h2>
+    <p>Loaded inside React Shell</p>
+  `
 })
-export class AppComponent {
-  title = 'angular-mfe';
-    message: string = 'Angular MFE cmponent';
-}
+export class AppComponent {}

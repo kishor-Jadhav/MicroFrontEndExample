@@ -1,10 +1,9 @@
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
-
   output: {
     uniqueName: "angularMfe",
-    publicPath: "auto"
+    publicPath: "http://localhost:4200/"
   },
 
   optimization: {
@@ -12,26 +11,20 @@ module.exports = {
   },
 
   plugins: [
-
     new ModuleFederationPlugin({
-
       name: "angularMfe",
 
       filename: "remoteEntry.js",
 
       exposes: {
-        "./AngularComponent":
-          "./src/app/angular-component/angular-component.component.ts"
+        "./AngularApp": "./src/bootstrap.ts"
       },
 
       shared: {
-        "@angular/core": { singleton: true },
-        "@angular/common": { singleton: true },
-        "@angular/router": { singleton: true }
+        "@angular/core": { singleton: true, strictVersion: false },
+        "@angular/common": { singleton: true, strictVersion: false },
+        "@angular/router": { singleton: true, strictVersion: false }
       }
-
     })
-
   ]
-
 };

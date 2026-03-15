@@ -20,7 +20,7 @@ module.exports = {
       filename: "remoteEntry.js",
 
       exposes: {
-        "./AngularComponent": "./src/app/angular-component/angular-component.component.ts"
+         './AngularApp': './src/bootstrap.ts'
       },
 
       shared: {
