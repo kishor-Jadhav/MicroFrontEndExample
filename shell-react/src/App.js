@@ -38,10 +38,10 @@ function ShellRoutes() {
       <Routes>
         <Route path="/" element={<h2>Home Page</h2>} />
         <Route
-        path="/accounts-list"
+        path="/react/accounts-list"
         element={
           <Suspense fallback="Loading React...">
-            <ReactRemote initialRoute="/accounts-list" />
+            <ReactRemote initialRoute="/react/accounts-list" />
           </Suspense>
         }
         />
@@ -55,6 +55,10 @@ function ShellRoutes() {
         />
 
         <Route path="/angular" element={<AngularWrapper />} />
+       <Route
+          path="/angular/productlist"
+          element={<AngularWrapper initialRoute="/angular/productlist" />}
+        />
       </Routes>
     </>
   );

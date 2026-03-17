@@ -17,7 +17,7 @@ const ReactComponent = ({ initialRoute = "/" }) => {
       <nav style={{ marginBottom: "20px" }}>
         <Link to="/">Home</Link> |
         <Link to="/accounts-entry"> Accounts Entry</Link> |
-        <Link to="/accounts-list"> Accounts List</Link>
+        <Link to="/react/accounts-list"> Accounts List</Link>
       </nav>
 
       <Routes>
@@ -34,7 +34,7 @@ const ReactComponent = ({ initialRoute = "/" }) => {
         />
 
         <Route
-          path="/accounts-list"
+          path="/react/accounts-list"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <AccountsList />

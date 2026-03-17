@@ -8,7 +8,7 @@ export const routes: Routes = [
      component: ProductEntryComponent
     }, 
      {
-     path: 'productlist',
+     path: 'angular/productlist',
      component: ProductListComponent
     }, 
      ];

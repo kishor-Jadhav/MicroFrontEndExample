@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Component, ElementRef } from '@angular/core';
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,23 @@ import { RouterOutlet, RouterLink } from '@angular/router';
     <nav>
       <ul>
         <li><a routerLink="/product">Product Entry</a></li>
-        <li><a routerLink="/productlist">Product List</a></li>
+        <li><a routerLink="/angular/productlist">Product List</a></li>
       </ul>
     </nav>
     
     <router-outlet></router-outlet>
   `
 })
-export class AppComponent {}
+export class AppComponent {
+   constructor(private router: Router, private el: ElementRef) {}
+
+  ngOnInit() {
+
+    const route = this.el.nativeElement.getAttribute('initial-route');
+
+    if(route){
+      this.router.navigateByUrl(route);
+    }
+
+  }
+}

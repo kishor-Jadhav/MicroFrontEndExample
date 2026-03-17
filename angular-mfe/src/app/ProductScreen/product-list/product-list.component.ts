@@ -10,7 +10,7 @@ export class ProductListComponent {
 navigateToReact() {
   window.dispatchEvent(
     new CustomEvent('shell:navigate', {
-      detail: { path: '/accounts-list' }
+      detail: { path: '/react/accounts-list' }
     })
   );
 }
