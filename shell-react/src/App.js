@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import AngularWrapper from "./AngularWrapper";
+import { setData } from "./GlobalState/shellStore";
 
 const ReactRemote = React.lazy(() =>
   import("reactMfe/ReactComponent")
@@ -16,11 +17,15 @@ function ShellRoutes() {
       const path = event.detail.path;
       navigate(path);
     };
-
+    const dataHandler = (event) => {
+      setData(event.detail);
+      
+    };
     window.addEventListener("shell:navigate", handler);
-
+    window.addEventListener("shell:set-data", dataHandler);
     return () => {
       window.removeEventListener("shell:navigate", handler);
+      window.removeEventListener("shell:set-data", dataHandler);
     };
 
   }, [navigate]);

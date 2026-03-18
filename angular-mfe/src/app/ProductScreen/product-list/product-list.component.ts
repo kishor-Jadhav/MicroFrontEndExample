@@ -14,4 +14,16 @@ navigateToReact() {
     })
   );
 }
+
+ sendDataToReact() {
+    window.dispatchEvent(
+      new CustomEvent('shell:set-data', {
+        detail: {
+          userId: 101,
+          name: 'Samarjeet Jadhav',
+          role: 'Admin'
+        }
+      })
+    );
+  }
 }
