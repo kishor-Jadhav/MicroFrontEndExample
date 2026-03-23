@@ -73,3 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 npx create-react-app shell-react
 
 npm install @craco/craco react-router-dom
+
+
+Servers
+Angular - http://localhost:4200/
+ReactMfe - http://localhost:3000/
+Shell - http://localhost:3001/

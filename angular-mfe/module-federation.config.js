@@ -22,7 +22,9 @@ module.exports = {
       exposes: {
          './AngularApp': './src/bootstrap.ts'
       },
-
+      remotes: {
+        shell: "shell@http://localhost:3001/remoteEntry.js"
+      },
       shared: {
         "@angular/core": { singleton: true, strictVersion: false },
         "@angular/common": { singleton: true, strictVersion: false },

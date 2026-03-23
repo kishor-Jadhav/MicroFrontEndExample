@@ -24,17 +24,27 @@ module.exports = {
           exposes: {
             "./ReactComponent": "./src/ReactComponent"
           },
-
-          shared: {
-            react: {
-              singleton: true,
-              requiredVersion: false
-            },
-            "react-dom": {
-              singleton: true,
-              requiredVersion: false
-            }
+          remotes: {
+            shell: "shell@http://localhost:3001/remoteEntry.js"
+          },
+         shared: {
+          react: {
+            singleton: true,
+            requiredVersion: false
+          },
+          "react-dom": {
+            singleton: true,
+            requiredVersion: false
+          },
+          "@reduxjs/toolkit": {
+            singleton: true,
+            
+          },
+          "react-redux": {
+            singleton: true,
+            
           }
+}
 
         })
 

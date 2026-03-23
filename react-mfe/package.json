@@ -16,7 +16,10 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.105.4",
     "webpack-cli": "^7.0.0",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "^5.2.3",
+    "@reduxjs/toolkit": "^2.11.2",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1"
   },
   "scripts": {     
     "eject": "react-scripts eject",

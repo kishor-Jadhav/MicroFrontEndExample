@@ -13,6 +13,7 @@ import { RouterOutlet, RouterLink, Router } from '@angular/router';
       <ul>
         <li><a routerLink="/product">Product Entry</a></li>
         <li><a routerLink="/angular/productlist">Product List</a></li>
+        <li><a routerLink="/angular/testshellstore">Test Shell Store</a></li>
       </ul>
     </nav>
     

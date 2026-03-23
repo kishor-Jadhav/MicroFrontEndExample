@@ -2,6 +2,9 @@ import React, { Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import AngularWrapper from "./AngularWrapper";
 import { setData } from "./GlobalState/shellStore";
+import TestRedux from "./Components/TestRedux";
+import TestReduxPublish from "./Components/TestReduxPublish";
+import TestReduxSubscribe from "./Components/TestReduxSubscribe";
 
 const ReactRemote = React.lazy(() =>
   import("reactMfe/ReactComponent")
@@ -38,6 +41,7 @@ function ShellRoutes() {
         <Link to="/">Home</Link> |
         <Link to="/react">React MFE</Link> |
         <Link to="/angular">Angular MFE</Link>
+        <Link to="/reduxtest">Redux Test</Link>
       </nav>
 
       <Routes>
@@ -58,7 +62,9 @@ function ShellRoutes() {
             </Suspense>
           }
         />
-
+        <Route path="/reduxtest" element={<TestRedux />} />
+         <Route path="/redux-component-1" element={<TestReduxPublish />} />
+          <Route path="/redux-component-2" element={<TestReduxSubscribe />} />
         <Route path="/angular" element={<AngularWrapper />} />
        <Route
           path="/angular/productlist"
