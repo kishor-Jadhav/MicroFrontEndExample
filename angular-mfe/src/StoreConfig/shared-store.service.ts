@@ -8,8 +8,8 @@ export class SharedStoreService {
  private store: any;
 
   async init() {
-    const remote = await import('shell/shellstore');
-    this.store = remote.store;
+    this.store = (window as any).store;
+     console.log("Angular store:", this.store);
   }
 
   getState() {
