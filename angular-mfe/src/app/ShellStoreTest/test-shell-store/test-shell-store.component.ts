@@ -14,8 +14,8 @@ export class TestShellStoreComponent implements OnInit {
   data: any;
   constructor(private shellStoreService: SharedStoreService) { }
 
-  async ngOnInit() {
-    await this.shellStoreService.init();
+   ngOnInit() {
+    
 
     // initial state
     this.data = this.shellStoreService.getState();

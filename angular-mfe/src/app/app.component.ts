@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { SharedStoreService } from '../StoreConfig/shared-store.service';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +22,12 @@ import { RouterOutlet, RouterLink, Router } from '@angular/router';
   `
 })
 export class AppComponent {
-   constructor(private router: Router, private el: ElementRef) {}
+   constructor(private router: Router, private el: ElementRef,
+    private shellStoreService: SharedStoreService
+   ) {}
 
-  ngOnInit() {
-
+  async ngOnInit() {
+   await this.shellStoreService.init();
     const route = this.el.nativeElement.getAttribute('initial-route');
 
     if(route){
