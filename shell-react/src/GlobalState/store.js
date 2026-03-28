@@ -12,10 +12,24 @@ const dataSlice = createSlice({
   }
 });
 
-export const { setData } = dataSlice.actions;
+const userConfigSlice = createSlice({
+  name: "userConfig",
+  initialState: {
+    value: {}
+  },
+  reducers: {
+    setUserConfig: (state, action) => {
+      state.value = action.payload;
+    }
+  }
+});
 
+
+export const { setData } = dataSlice.actions;
+export const { setUserConfig } = userConfigSlice.actions;
 export const store = configureStore({
   reducer: {
-    data: dataSlice.reducer
+    data: dataSlice.reducer,
+    userConfig: userConfigSlice.reducer
   }
 });

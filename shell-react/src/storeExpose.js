@@ -1,5 +1,5 @@
 import { store } from "./GlobalState/store";
-import { setData } from "./GlobalState/store";
+import { setData , setUserConfig } from "./GlobalState/store";
 
 // 🔥 Ensure SINGLE INSTANCE
 if (!window.__GLOBAL_REDUX_STORE__) {
@@ -8,4 +8,4 @@ if (!window.__GLOBAL_REDUX_STORE__) {
 
 // ✅ EXPORT THIS (IMPORTANT)
 export const globalStore = window.__GLOBAL_REDUX_STORE__;
-export { setData };
+export { setData,setUserConfig };

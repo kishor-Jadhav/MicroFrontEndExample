@@ -6,6 +6,7 @@ import { setData } from "../GlobalState/store";
 function TestReduxSubscribe() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data.value);
+  const userConfig = useSelector((state) => state.userConfig.value);
 
   return (
     <div style={{ padding: "20px", border: "2px solid blue" }}>
@@ -21,6 +22,10 @@ function TestReduxSubscribe() {
 
       <h3>Redux Data:</h3>
       <pre>{JSON.stringify(data, null, 2)}</pre>
+
+      <h3>User Config:</h3>
+      <pre>{JSON.stringify(userConfig, null, 2)}</pre>
+
     </div>
   );
 }
