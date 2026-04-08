@@ -27,9 +27,23 @@ const userConfigSlice = createSlice({
 
 export const { setData } = dataSlice.actions;
 export const { setUserConfig } = userConfigSlice.actions;
+
+// Redux thunk action that also dispatches custom event
+export const setEventData = (data) => (dispatch) => {
+  dispatch(setData(data));
+  
+  window.dispatchEvent(
+    new CustomEvent("shell:cust-event-data-updated", {
+      detail: data
+    })
+  );
+};
+
 export const store = configureStore({
   reducer: {
     data: dataSlice.reducer,
     userConfig: userConfigSlice.reducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware() // Redux Thunk is included by default in Redux Toolkit
 });

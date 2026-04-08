@@ -3,12 +3,13 @@ import { MemoryRouter, Routes, Route, Link } from "react-router-dom";
 import AccountsEntry from "./Accounts/AccountsEntry";
 import AccountsList from "./Accounts/AccountsList";
 import LoginComponent from "./LoginComponents/LoginComponent";
+import { DataProvider } from "./AppContexts/DataProvider";
  
 
 const ReactComponent = ({ initialRoute = "/" }) => {
 
   return (
-
+<DataProvider>  
     <MemoryRouter initialEntries={[initialRoute]}>   
 
       <Routes>
@@ -41,6 +42,7 @@ const ReactComponent = ({ initialRoute = "/" }) => {
       </Routes>
 
     </MemoryRouter>
+    </DataProvider>
   );
 };
 

@@ -37,6 +37,7 @@ module.exports = {
 
           exposes: {
             "./shellstore": "./src/storeExpose.js",
+            "./shellEvent": "./src/storeExpose.js",
           },
 
           shared: {

@@ -20,6 +20,10 @@ module.exports = {
         "./ReactComponent": "./src/ReactComponent"
       },
 
+      remotes: {
+        shell: "shell@http://localhost:3001/remoteEntry.js"
+      },
+
       shared: {
         react: { singleton: true },
         "react-dom": { singleton: true }

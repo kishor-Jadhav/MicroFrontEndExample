@@ -22,7 +22,7 @@ module.exports = {
           filename: "remoteEntry.js",
 
           exposes: {
-            "./ReactComponent": "./src/ReactComponent"
+            "./ReactComponent": "./src/App"
           },
           remotes: {
             shell: "shell@http://localhost:3001/remoteEntry.js"

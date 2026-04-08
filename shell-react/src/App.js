@@ -6,8 +6,9 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import AngularWrapper from "./AngularWrapper";
-import { setData } from "./GlobalState/shellStore";
+import { setEventData } from "./GlobalState/store";
 import TestRedux from "./Components/TestRedux";
 import TestReduxPublish from "./Components/TestReduxPublish";
 import TestReduxSubscribe from "./Components/TestReduxSubscribe";
@@ -16,6 +17,7 @@ const ReactRemote = React.lazy(() => import("reactMfe/ReactComponent"));
 
 function ShellRoutes() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handler = (event) => {
@@ -23,7 +25,7 @@ function ShellRoutes() {
       navigate(path);
     };
     const dataHandler = (event) => {
-      setData(event.detail);
+      dispatch(setEventData(event.detail));
     };
     window.addEventListener("shell:navigate", handler);
     window.addEventListener("shell:set-data", dataHandler);
@@ -31,7 +33,7 @@ function ShellRoutes() {
       window.removeEventListener("shell:navigate", handler);
       window.removeEventListener("shell:set-data", dataHandler);
     };
-  }, [navigate]);
+  }, [navigate, dispatch]);
 
   return (
     <>

@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useLocalStore } from "../AppContexts/DataProvider";
 
 export default function AccountsList() {
-
-  const [data, setData] = useState(() => {
-    const existing = window.shellStore?.data;
-    console.log("Initial data from shell:", existing);
-    return existing || {};
-  });
-
-  useEffect(() => {
-
-    const handler = (event) => {
-      console.log("Received data update in AccountsList:", event.detail);
-      setData(event.detail);
-    };
-
-    window.addEventListener("shell:data-updated", handler);
-
-    return () => {
-      window.removeEventListener("shell:data-updated", handler);
-    };
-  }, []);
+  const { loginConfig } = useLocalStore(); //Local state from DataProvider context
+  const data = useSelector((state) => state.data.value);
 
   const navigateToReact = () => {
     window.dispatchEvent(
@@ -40,8 +24,13 @@ export default function AccountsList() {
       </div>
 
       <div style={{ border: "2px solid green", padding: "20px" }}>
-        <h3>Received Data:</h3>
+        <h3>Received Data from Redux Store:</h3>
         <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
+
+      <div style={{ border: "2px solid green", padding: "20px" }}>
+        <h3>Login Data Context:</h3>
+        <pre>{JSON.stringify(loginConfig, null, 2)}</pre>
       </div>
     </>
   );    

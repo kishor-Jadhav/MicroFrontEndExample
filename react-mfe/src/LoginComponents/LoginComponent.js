@@ -7,12 +7,16 @@ import {loginStyles} from "../Styles/LoginStyle";
 import { useSelector,useDispatch } from "react-redux";
 import { setUserConfig } from "shell/shellstore";
 import { Link } from "react-router-dom";
+import { globalStore } from "shell/shellstore";
+import { useLocalStore } from "../AppContexts/DataProvider";
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email format").required("Email is required"),
   password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
 const LoginComponent = () => {
+    const { loginConfig, updateLoginConfig } = useLocalStore(); //Local state from DataProvider context
+    const userConfig = useSelector((state) => state.userConfig.value);  // Global state from shell store
     const [useApierror, setApiError] = useState("");
     const dispatch = useDispatch();
     const { register, handleSubmit, formState:{errors, isSubmitting} } = useForm({
@@ -25,6 +29,7 @@ const LoginComponent = () => {
             console.log("Login successful:", loginresp.data);
             localStorage.setItem("token", loginresp.data.token);            
             dispatch(setUserConfig(loginresp.data.user));
+            updateLoginConfig(loginresp.data.user); // Update local context state with login data   
             alert("Login Successful!");
         }catch(error){
             localStorage.setItem("token", "");
@@ -64,6 +69,9 @@ const LoginComponent = () => {
 
             </form>
          </div>
+         <div>Login Details</div>
+         <h3>User Config:</h3>
+        <pre>{JSON.stringify(userConfig, null, 2)}</pre>
          </>
     )
 }

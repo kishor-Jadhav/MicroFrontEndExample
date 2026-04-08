@@ -12,6 +12,12 @@ module.exports = {
 
       name: "shell",
 
+      filename: "remoteEntry.js",
+
+      exposes: {
+        "./shellEvent": "./src/storeExpose"
+      },
+
       remotes: {
 
         reactMfe: "reactMfe@http://localhost:3000/remoteEntry.js",

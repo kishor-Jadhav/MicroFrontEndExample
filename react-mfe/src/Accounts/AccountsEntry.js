@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setData } from "shell/shellstore";
+import { setEventData } from "shell/shellEvent";
 
 export default function AccountsEntry() {
 
@@ -13,7 +13,7 @@ export default function AccountsEntry() {
 
       <button
         onClick={() =>
-          dispatch(setData({ source: "React MFE" }))
+          dispatch(setEventData({ source: "React MFE" }))
         }
       >
         Update Data

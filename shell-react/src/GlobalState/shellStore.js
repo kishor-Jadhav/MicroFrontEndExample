@@ -1,29 +1,29 @@
 export const shellStore = {
-  data: {},
-  userConfig: {}
+  custEvendata: {},
+  custEvenuserConfig: {}
 };
 
 window.shellStore = shellStore;
 
-export const setData = (data) => {
-  shellStore.data = data;
+export const setEventData = (data) => {
+  shellStore.custEvendata = data;
 
   window.dispatchEvent(
-    new CustomEvent("shell:data-updated", {
-      detail: shellStore.data
+    new CustomEvent("shell:cust-event-data-updated", {
+      detail: shellStore.custEvendata
     })
   );
 };
 
-export const setUserConfig = (config) => {
-  shellStore.userConfig = config;
+export const setEventUserConfig = (config) => {
+  shellStore.custEvenuserConfig = config;
 
   window.dispatchEvent(
     new CustomEvent("shell:user-config-updated", {
-      detail: shellStore.userConfig
+      detail: shellStore.custEvenuserConfig
     })
   );
 };
 
-export const getData = () => shellStore.data;
-export const getUserConfig = () => shellStore.userConfig;
+export const getCustEventData = () => shellStore.custEvendata;
+export const getCustEventUserConfig = () => shellStore.custEvenuserConfig;
