@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocalStore } from "../AppContexts/DataProvider";
+import CustomEventListener from "../Components/CustomEventListener";
 
 export default function AccountsList() {
   const { loginConfig } = useLocalStore(); //Local state from DataProvider context
@@ -32,6 +33,9 @@ export default function AccountsList() {
         <h3>Login Data Context:</h3>
         <pre>{JSON.stringify(loginConfig, null, 2)}</pre>
       </div>
+
+      {/* Custom Event Listener */}
+      <CustomEventListener />
     </>
   );    
 }

@@ -33,11 +33,12 @@ module.exports = {
           remotes: {
             reactMfe: "reactMfe@http://localhost:3000/remoteEntry.js",
             angularMfe: "angularMfe@http://localhost:4200/remoteEntry.js",
+            reactConceptMfe: "reactConceptMfe@http://localhost:2001/remoteEntry.js",
           },
 
           exposes: {
             "./shellstore": "./src/storeExpose.js",
-            "./shellEvent": "./src/storeExpose.js",
+            
           },
 
           shared: {

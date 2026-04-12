@@ -1,25 +1,31 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setEventData } from "shell/shellEvent";
+import { setEventData } from "shell/shellstore";
+import CustomEventListener from "../Components/CustomEventListener";
 
 export default function AccountsEntry() {
 
   const data = useSelector((state) => state.data.value);
   const dispatch = useDispatch();
 
+
   return (
-    <div style={{ border: "2px solid green", padding: "20px" }}>
-      <h2>React MFE</h2>
+    <>
+      <div style={{ border: "2px solid green", padding: "20px" }}>
+        <h2>React MFE</h2>
+        <button
+          onClick={() =>
+            dispatch(setEventData({ source: "React MFE" }))
+          }
+        >
+          Update Data
+        </button>
 
-      <button
-        onClick={() =>
-          dispatch(setEventData({ source: "React MFE" }))
-        }
-      >
-        Update Data
-      </button>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
 
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+      {/* Custom Event Listener */}
+      <CustomEventListener />
+    </>
   );
 }

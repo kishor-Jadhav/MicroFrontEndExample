@@ -9,7 +9,7 @@ import { DataProvider } from "./AppContexts/DataProvider";
 const App = ({ initialRoute = "/" }) => {
 
   return (
-<DataProvider>  
+<DataProvider>  {/*Use context */  }
     <MemoryRouter initialEntries={[initialRoute]}>   
 
       <Routes>

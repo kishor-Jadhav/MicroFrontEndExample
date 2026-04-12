@@ -1,9 +1,9 @@
+ 
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./App";
+import AppReactConcept from "./AppReactConcept";
 
-console.log("📦 React MFE Bootstrap loading...");
 
 // Import the shared Redux store from shell
 import("shell/shellstore").then(({ globalStore }) => {
@@ -14,20 +14,19 @@ import("shell/shellstore").then(({ globalStore }) => {
   root.render(
     <React.StrictMode>
       <Provider store={globalStore}>
-        <App />
+        <AppReactConcept />
       </Provider>
     </React.StrictMode>
   );
   
-  console.log("✅ React MFE: Mounted with Redux Provider");
+   
 }).catch(err => {
-  console.error("❌ React MFE: Failed to load shell store:", err);
-  // Fallback if shell store is not available
+
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
     <React.StrictMode>
-      <App />
+       <AppReactConcept />
     </React.StrictMode>
   );
-  console.log("⚠️ React MFE: Mounted without Redux Provider (fallback)");
+  
 });

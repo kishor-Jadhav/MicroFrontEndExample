@@ -15,7 +15,7 @@ module.exports = {
       filename: "remoteEntry.js",
 
       exposes: {
-        "./shellEvent": "./src/storeExpose"
+        "./shellstore": "./src/storeExpose"
       },
 
       remotes: {

@@ -12,8 +12,10 @@ import { setEventData } from "./GlobalState/store";
 import TestRedux from "./Components/TestRedux";
 import TestReduxPublish from "./Components/TestReduxPublish";
 import TestReduxSubscribe from "./Components/TestReduxSubscribe";
+import CustomEventExample from "./Components/CustomEventExample";
 
 const ReactRemote = React.lazy(() => import("reactMfe/ReactComponent"));
+const ReactConceptRemote = React.lazy(() => import("reactConceptMfe/ReactConceptComponent"));
 
 function ShellRoutes() {
   const navigate = useNavigate();
@@ -40,9 +42,12 @@ function ShellRoutes() {
       <h1>Shell Application</h1>
 
       <nav>
-        <Link to="/">Home</Link> |<Link to="/react">React MFE</Link> |
-        <Link to="/angular">Angular MFE</Link>
-        <Link to="/reduxtest">Redux Test</Link>
+        <Link to="/">Home</Link> |
+        <Link to="/react">React MFE</Link> |
+        <Link to="/angular">Angular MFE</Link> |
+        <Link to="/reduxtest">Redux Test</Link> |
+        <Link to="/custom-events">Custom Events</Link>|
+        <Link to="/react-concept">React Concepts</Link>|
       </nav>
 
       <Routes>
@@ -52,6 +57,7 @@ function ShellRoutes() {
         <Route path="/reduxtest" element={<TestRedux />} />
         <Route path="/redux-component-1" element={<TestReduxPublish />} />
         <Route path="/redux-component-2" element={<TestReduxSubscribe />} />
+        <Route path="/custom-events" element={<CustomEventExample />} />
         {/* Shell components End */}
 
         {/* React MFA1 components */}
@@ -80,6 +86,18 @@ function ShellRoutes() {
           element={<AngularWrapper initialRoute="/angular/productlist" />}
         />
          {/* Angular MFA1 components End */}
+
+         {/* React Concept MFA2 components */}
+         <Route
+          path="/react-concept"
+          element={
+            <Suspense fallback="Loading React...">
+              <ReactConceptRemote message="Loaded from Shell" />
+            </Suspense>
+          }
+        />
+              
+         {/* React Concept MFA1 components End */}
       </Routes>
     </>
   );
